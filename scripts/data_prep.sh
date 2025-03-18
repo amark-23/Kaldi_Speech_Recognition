@@ -41,7 +41,7 @@ for subset in train dev test; do
         number=$(echo "$line" | grep -oE '[0-9]{3}$' | sed 's/^0*//')
 
         if [[ -n "$number" && "$number" -gt 0 && "$number" -le ${#transcriptions[@]} ]]; then
-            cleaned_text=$(echo "${transcriptions[number-1]}" | tr '[:upper:]' '[:lower:]' | sed "s/[^a-zA-Z0-9' ]//g")
+            cleaned_text=$(echo "${transcriptions[number-1]}" | tr '[:upper:]' '[:lower:]' | sed "s/[^a-zA-Z0-9' ]//g; s/-/ /g")
             utt_id=$(echo "$line" | awk '{print $1}')
             echo "$utt_id $cleaned_text" >> "$DATA_DIR/$subset/text"
         else
@@ -77,6 +77,14 @@ for subset in train dev test; do
     done < "$DATA_DIR/$subset/text"
 
     echo "text converted to phonemes for $subset"
+
+    # Remove original `text` file
+    rm -f "$DATA_DIR/$subset/text"
+
+    # Rename `text_phonemes` to `text`
+    mv "$DATA_DIR/$subset/text_phonemes" "$DATA_DIR/$subset/text"
+
 done
+
 
 echo "All steps completed successfully!"

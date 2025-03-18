@@ -29,6 +29,8 @@ ln -sfn $WSJ_DIR/utils $USC_DIR/utils
 mkdir -p $USC_DIR/local
 ln -sfn $WSJ_DIR/steps/score_kaldi.sh $USC_DIR/local/score_kaldi.sh
 
+
+
 # Step 6: Create 'conf' directory and copy 'mfcc.conf'
 mkdir -p $CONF_DIR
 cp $WSJ_DIR/conf/mfcc.conf $CONF_DIR/mfcc.conf

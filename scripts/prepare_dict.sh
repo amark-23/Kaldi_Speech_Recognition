@@ -25,7 +25,8 @@ echo "sil sil" >> $DICT_DIR/lexicon.txt  # Add silence phoneme mapping
 
 # Step 5: Generate `lm_train.text`, `lm_dev.text`, and `lm_test.text` with <s> and </s>
 for subset in train dev test; do
-    awk '{print $1, "<s>", substr($0, index($0, $2)), "</s>"}' $TEXT_DIR/$subset/text_phonemes > $DICT_DIR/lm_${subset}.text
+    awk '{$1="";print "<s>", $0, "</s>"}' $TEXT_DIR/$subset/text > $DICT_DIR/lm_${subset}.text
+    grep "<s> <s>" $DICT_DIR/lm_${subset}.text
     echo " lm_${subset}.text created!"
 done
 
