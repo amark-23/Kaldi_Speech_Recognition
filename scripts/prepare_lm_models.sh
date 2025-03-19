@@ -15,11 +15,7 @@ compile-lm data/local/lm_tmp/lm_phone_bg.ilm.gz -t=yes /dev/stdout | grep -v unk
 # Step 3: create FST
 utils/prepare_lang.sh --position-dependent-phones false \
   data/local/dict "<oov>" data/local/lang_tmp data/lang
-WORDS_FILE="data/lang/words.txt"
-if ! grep -q "^spn " "$WORDS_FILE"; then
-    echo "spn 45" >> "$WORDS_FILE"  # Adjust the number accordingly
-    echo "Added 'spn' to words.txt"
-fi
+
 
 # Step 4: sort
 DATA_DIR="data"

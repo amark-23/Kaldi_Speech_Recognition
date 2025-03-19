@@ -22,4 +22,7 @@ echo -e "\n${GREEN}Evaluating language models...${NC}"
 echo -e "\n${GREEN}Extracting MFCC features...${NC}"
 ./scripts/mffc_analysis.sh
 
+echo -e "\n${GREEN}Training Monophone GMM-HMM model...${NC}"
+./scripts/train_mono.sh
+
 echo -e "\n${GREEN}All steps completed!${NC}"
