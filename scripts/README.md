@@ -95,9 +95,17 @@ $$
 P(x | s) = \sum_{i=1}^{M} w_i N(x | \mu_i, \Sigma_i)
 $$
 
-- \( M \) = number of Gaussian components  
-- \( w_i \) = weights of each Gaussian  
-- \( N(x | \mu_i, \Sigma_i) \) = Gaussian distribution with mean \( \mu_i \) and covariance \( \Sigma_i \)  
+$$
+M = \text{number of Gaussian components}
+$$
+
+$$
+w_i = \text{weights of each Gaussian}
+$$
+
+$$
+N(x | \mu_i, \Sigma_i) = \text{Gaussian distribution with mean } \mu_i \text{ and covariance } \Sigma_i
+$$
 
 ---
 
