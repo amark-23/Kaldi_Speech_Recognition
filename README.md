@@ -4,16 +4,6 @@
 
 This repository contains scripts and resources for training and evaluating phoneme-based speech recognition models using the **Kaldi** toolkit. The project follows a step-by-step process from **data preparation** to **training monophone and triphone models**, **decoding** using the **Viterbi algorithm**, and evaluating results using **Phone Error Rate (PER)**.
 
-## 📌 **Table of Contents**
-- [Installation](#installation)
-- [Dataset](#dataset)
-- [Project Structure](#project-structure)
-- [Preprocessing](#preprocessing)
-- [Language Model Preparation](#language-model-preparation)
-- [Feature Extraction](#feature-extraction)
-- [Acoustic Model Training](#acoustic-model-training)
-- [Decoding and Scoring](#decoding-and-scoring)
-- [References](#references)
 
 ---
 
@@ -44,7 +34,7 @@ The dataset consists of **recordings from 4 speakers** (m1, m3, f1, f5) with **4
 
 📁 **Data Structure**:
 ```
-usc/data
+usc
 ├── wav/                     # Audio recordings
 ├── lexicon.txt              # A disctionary of the English Language  
 ├── filesets/                # Train, Dev, and Test partitions
@@ -56,6 +46,10 @@ usc/data
 ## 📌 **Project Structure**
 ```
 usc/
+├── wav/                     # Audio recordings
+├── lexicon.txt              # A disctionary of the English Language  
+├── filesets/                # Train, Dev, and Test partitions
+├── transcription.txt        # Text transcriptions
 ├── data/
 │   ├── train/               # Training set metadata
 │   ├── dev/                 # Validation set metadata
