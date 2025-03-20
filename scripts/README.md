@@ -23,8 +23,7 @@ The human ear does not perceive frequencies linearly but according to the Mel Sc
 MFCCs exploit this behavior using a Mel filterbank that partitions the audio spectrum according to the Mel scale.
 
 #### **MFCC Computation Process:**
-1. **Pre-Emphasis:** A pre-emphasis filter is applied to enhance high frequencies, balancing the spectrum and improving the signal-to-noise ratio (SNR). The filter is defined as:  
-   *y(t) = x(t) - α ⋅ x(t-1)*, where *α* is typically 0.95 or 0.97.
+1. **Pre-Emphasis:** A pre-emphasis filter is applied to enhance high frequencies, balancing the spectrum and improving the signal-to-noise ratio (SNR). The filter is defined as: *y(t) = x(t) - α ⋅ x(t-1)*, where *α* is typically 0.95 or 0.97.
 2. **Framing:** The signal is divided into small time frames (20-40 ms) with 50% overlap, assuming signal properties remain stable within such short periods.
 3. **Windowing:** A window function (e.g., Hamming window) is applied to each frame to minimize spectral leakage.
 4. **Fast Fourier Transform (FFT):** Converts the signal from the time domain to the frequency domain.
@@ -60,9 +59,8 @@ Language Models (LMs) are a fundamental component of ASR systems. Their role is 
 A key evaluation metric for language models is **Perplexity (PP):**
 
 $$
-P(x | s) = \sum_{i=1}^{M} w_i N(x | \mu_i, \Sigma_i)
+PP(W) = P(w_1, w_2, \dots, w_n)^{-1/n}
 $$
-
 
 Lower perplexity indicates a better language model, as it means the model is more confident in predicting word sequences.
 
@@ -93,23 +91,28 @@ GMM-HMM models are used in speech recognition to map acoustic features (such as 
 
 The emission probability of a feature *x* given a state *s* is:
 
-*P(x | s) = \sum_{i=1}^{M} w_i N(x | μ_i, Σ_i)*
+$$
+P(x | s) = \sum_{i=1}^{M} w_i N(x | \mu_i, \Sigma_i)
+$$
 
-where:
-- *M* = number of Gaussian components,
-- *w_i* = weights of each Gaussian,
-- *N(x | μ_i, Σ_i)* = Gaussian distribution with mean *μ_i* and covariance *Σ_i*.
+- \( M \) = number of Gaussian components  
+- \( w_i \) = weights of each Gaussian  
+- \( N(x | \mu_i, \Sigma_i) \) = Gaussian distribution with mean \( \mu_i \) and covariance \( \Sigma_i \)  
 
 ---
 
 ### **Combining Language and Acoustic Models**
 Speech recognition is based on Bayes' theorem, where we seek the word/phoneme that maximizes the probability given the audio signal:
 
-*Ŵ = argmax_W P(W | X)*
+$$
+\hat{W} = \arg\max_W P(W | X)
+$$
 
 Using Bayes' rule:
 
-*P(W | X) = (P(X | W) P(W)) / P(X)*
+$$
+P(W | X) = \frac{P(X | W) P(W)}{P(X)}
+$$
 
 where:
 - *P(X | W)*: The acoustic model estimates how likely the audio signal X is given the word W.
@@ -189,17 +192,26 @@ The `compute_cmvn_stats.sh` command applies Cepstral Mean and Variance Normaliza
 - **Removing recording condition effects** by normalizing mean values.
 - **Normalizing dynamic range** by standardizing feature variances.
 
-**Mathematical Representation:**
-1. **Mean Normalization:**
+### **Mathematical Representation:**
+1. **Mean Normalization:**  
    - Compute mean for each feature dimension:  
-     *μ(d) = (1/T) Σ x_t(d)*
+     $$
+     \mu(d) = \frac{1}{T} \sum x_t(d)
+     $$
    - Subtract from each feature:
-     *x_t(d) = x_t(d) - μ(d)*
-2. **Variance Normalization:**
+     $$
+     x_t(d) = x_t(d) - \mu(d)
+     $$
+
+2. **Variance Normalization:**  
    - Compute standard deviation:
-     *σ(d) = sqrt((1/T) Σ (x_t(d) - μ(d))²)*
+     $$
+     \sigma(d) = \sqrt{\frac{1}{T} \sum (x_t(d) - \mu(d))^2}
+     $$
    - Normalize variance:
-     *x_t(d) = (x_t(d) - μ(d)) / σ(d)*
+     $$
+     x_t(d) = \frac{x_t(d) - \mu(d)}{\sigma(d)}
+     $$
 
 Using `feat_to_dim` and `feat_to_len`, we analyze the feature dimensions and frame counts per utterance. The first five utterances have frame counts: 317, 371, 399, 328, and 464, all with 13-dimensional features.
 
