@@ -1,4 +1,7 @@
 #!/bin/bash
+export IRSTLM=/home/a-mark23/kaldi/tools/irstlm
+export PATH=$IRSTLM/bin:$PATH
+
 
 # Step 1: language model intermediate
 build-lm.sh -i data/local/dict/lm_train.text -n 1 -o data/local/lm_tmp/lm_phone_ug.ilm.gz

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the list of exceptions
-EXCEPTIONS=("filesets" "wav" "scripts" "transcriptions.txt" "lexicon.txt" "run_usc.sh" "cleanup.sh")
+EXCEPTIONS=("filesets" "wav" "scripts" "transcriptions.txt" "lexicon.txt" "run_usc.sh" "cleanup.sh" "data/train" "data/test" "data/val")
 
 echo "Cleaning up the directory, but keeping:"
 for item in "${EXCEPTIONS[@]}"; do
