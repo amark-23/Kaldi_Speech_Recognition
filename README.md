@@ -21,7 +21,10 @@ This repository contains scripts and resources for training and evaluating phone
    export KALDI_ROOT=~/kaldi
    export PATH=$KALDI_ROOT/tools/irstlm/bin:$KALDI_ROOT/src/lmbin:$KALDI_ROOT/src/fstbin:$KALDI_ROOT/src/gmmbin:$KALDI_ROOT/src/featbin:$KALDI_ROOT/src/latbin:$KALDI_ROOT/src/nnetbin:$KALDI_ROOT/src/nnet3bin:$KALDI_ROOT/src/sgmm2bin:$KALDI_ROOT/src/chainbin:$KALDI_ROOT/tools/openfst/bin:$PATH
    ```
- 4. Execute the pipeline:
+ 
+ 4. Add a dataset, as described below, to the project folder
+ 
+ 5. Execute the pipeline:
     ```bash
     chmod +x run_usc.sh
     ./run_usc.sh  
