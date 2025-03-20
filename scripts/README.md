@@ -60,8 +60,9 @@ Language Models (LMs) are a fundamental component of ASR systems. Their role is 
 A key evaluation metric for language models is **Perplexity (PP):**
 
 $$
-*PP(W) = P(w_1, w_2, ..., w_n)^(-1/n)*
+P(x | s) = \sum_{i=1}^{M} w_i N(x | \mu_i, \Sigma_i)
 $$
+
 
 Lower perplexity indicates a better language model, as it means the model is more confident in predicting word sequences.
 
