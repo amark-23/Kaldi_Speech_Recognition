@@ -257,6 +257,8 @@ The best values (`LMW=7.0, IP=0.0`) were found in the `best_wer` output:
 
 ### **Triphone Model Training**
 The script `train_tri.sh` trains a triphone model, yielding:
+
+
 ![image](https://github.com/user-attachments/assets/87415cb7-1644-41f4-857d-5e2c7cf3139d)
 
 - **PER = 33.85% (better than monophone models).**
