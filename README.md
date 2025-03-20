@@ -2,7 +2,7 @@
 
 # **Phoneme Recognition using Kaldi**
 
-This repository contains scripts and resources for training and evaluating phoneme-based speech recognition models using the **Kaldi** toolkit. The project follows a step-by-step process from **data preparation** to **training monophone and triphone models**, **decoding** using the **Viterbi algorithm**, and evaluating results using **Phone Error Rate (PER)**.
+This repository contains scripts and resources for training and evaluating phoneme-based speech recognition models using the **Kaldi** toolkit. The project follows a step-by-step process from **data preparation** to **training monophone and triphone models**, **decoding** using the **Viterbi algorithm**, and evaluating results using **Phone Error Rate (PER)**. You can find more info inside the /scripts directory.
 
 
 ---
