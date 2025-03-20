@@ -13,7 +13,7 @@ This repository contains scripts and resources for training and evaluating phone
 2. Clone this repository into your **Kaldi egs** directory:  
    ```bash
    cd ~/kaldi/egs
-   git clone https://github.com/your-repo-name/usc-timit.git usc
+   git clone https://github.com/amark-23/Kaldi_Speech_Recognition.git usc
    cd usc
    ```
 3. Set up your Kaldi environment:
