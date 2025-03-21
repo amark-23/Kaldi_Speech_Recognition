@@ -200,26 +200,33 @@ The `compute_cmvn_stats.sh` command applies Cepstral Mean and Variance Normaliza
 - **Removing recording condition effects** by normalizing mean values.
 - **Normalizing dynamic range** by standardizing feature variances.
 
+
 ### **Mathematical Representation**
 
 1. **Mean Normalization**  
-   - Compute the mean for each feature dimension:  
+   - Compute the mean for each feature dimension:
+
      $$
      \mu^{(d)} = \frac{1}{T} \sum_{t=1}^{T} x_t^{(d)}
      $$
-   - Subtract the mean from each feature:  
+
+   - Subtract the mean from each feature:
+
      $$
-     x_t^{(d)} \leftarrow x_t^{(d)} - \mu^{(d)}
+     x_t^{(d)} = x_t^{(d)} - \mu^{(d)}
      $$
 
 2. **Variance Normalization**  
-   - Compute the standard deviation:  
+   - Compute the standard deviation:
+
      $$
      \sigma^{(d)} = \sqrt{ \frac{1}{T} \sum_{t=1}^{T} \left( x_t^{(d)} - \mu^{(d)} \right)^2 }
      $$
-   - Normalize the variance:  
+
+   - Normalize each feature:
+
      $$
-     x_t^{(d)} \leftarrow \frac{x_t^{(d)} - \mu^{(d)}}{\sigma^{(d)}}
+     x_t^{(d)} = \frac{x_t^{(d)} - \mu^{(d)}}{\sigma^{(d)}}
      $$
 
 Using `feat_to_dim` and `feat_to_len`, we analyze the feature dimensions and frame counts per utterance. The first five utterances have frame counts: 317, 371, 399, 328, and 464, all with 13-dimensional features.
